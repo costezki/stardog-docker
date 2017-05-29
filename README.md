@@ -3,14 +3,16 @@
 
 ## Build 
 
-- download stardog release .zip (e.g. `stardog-4.1.2.zip`) and `stardog-license-key.bin` license file (community or enterprise) from [http://stardog.com/#download](http://stardog.com/#download) and save both in this folder.
-- `docker build -t stardog:4.1.2 .`
+- download stardog release .zip (e.g. `stardog-5.0-beta.zip`) and `stardog-license-key.bin` license file (community or enterprise) from [http://stardog.com/#download](http://stardog.com/#download) and save both in this folder.
+- run the script ./docker-publish.sh to build and publish the image
+- to build only run `docker build -t stardog:5.0-beta .`
+
 
 
 ## Run
 
 ```shell
-docker run -d --name stardog -p 5820:5820 stardog:4.1.2
+docker run -d --name stardog -p 5820:5820 stardog:5.0-beta
 ```
 
 **HINT:** A default database named `stardog` will be created.
@@ -29,7 +31,7 @@ docker volume create --name stardog-data
 To run the stardog image using this volume do:
 
 ```shell
-docker run -d --name stardog -p 5820:5820 -v stardog-data:/data stardog:4.1.2
+docker run -d --name stardog -p 5820:5820 -v stardog-data:/data stardog:5.0-beta
 ```
 
 ## Access

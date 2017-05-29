@@ -1,3 +1,5 @@
 stardog-*.bin
 stardog-*.zip
 data
+.idea/
+
