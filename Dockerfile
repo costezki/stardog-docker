@@ -7,7 +7,10 @@ ENV STARDOG_INSTALL_DIR /opt/stardog
 
 ENV STARDOG_START_PARAMS ""
 ENV STARDOG_CREATE_PARAMS "-n stardog -v -o versioning.enabled=true preserve.bnode.ids=false strict.parsing=false --"
-ENV STARDOG_JAVA_ARGS "-Xms2g -Xmx2g -XX:MaxDirectMemorySize=2g"
+# original parameters : -Xms2g -Xmx2g -XX:MaxDirectMemorySize=2g
+ENV STARDOG_JAVA_ARGS "-Xms128m -Xmx256m -XX:MaxDirectMemorySize=256m"
+# attempt to fixingin java heap problem in docker container
+ENV MALLOC_ARENA_MAX=4
 ENV PATH ${STARDOG_INSTALL_DIR}/bin:${PATH}
 
 RUN mkdir -p ${STARDOG_HOME}
